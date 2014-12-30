@@ -5,6 +5,24 @@ require 'time'
 
 class Order
 
+  def initialize
+    @order = []
+  end
+
+  def take_order
+    puts 'What would you like to order?'
+    order = STDIN.gets.chomp
+    while !order.empty? do
+      @order << order
+    end
+    puts 'Please calculate the order total'
+    @total_est = STDIN.gets.chomp
+  end
+
+  def calculate_total
+    @order.each
+  end
+
   def delivery_time
     t = Time.now + (60*60)
     time = "#{t.hour}:#{t.min}"
