@@ -14,9 +14,13 @@ class Order
     order = STDIN.gets.chomp
     while !order.empty? do
       @order << order
+      take_order
+      break
     end
-    puts 'Please calculate the order total'
-    @total_est = STDIN.gets.chomp
+  end
+
+  def show_order
+    @order
   end
 
   def calculate_total
