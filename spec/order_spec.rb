@@ -14,8 +14,8 @@ describe Order do
     expect(order).to receive(:get_total)
   end
 
-  xit 'can calculate the order total' do
-
+  it 'can calculate the order total' do
+    expect(order.calculate_total).to eq(2.45)
   end
 
   xit 'can send a text to the customer' do

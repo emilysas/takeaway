@@ -40,7 +40,9 @@ class Order
   end
 
   def calculate_total
-    @order.each
+    prices = []
+    @order.each {|menu_item| prices << menu_item[:price]}
+    total = prices.inject{|memo, num| memo + num}
   end
 
   def delivery_time
