@@ -17,10 +17,26 @@ class Order
       take_order
       break
     end
+    get_total
   end
 
   def show_order
     @order
+  end
+
+  def get_total
+    puts 'Please calculate the order total'
+    total_est = STDIN.gets.chomp
+    compare_total(total_est)
+  end
+
+  def compare_total(estimate)
+    if calculate_total == estimate 
+      send_text 
+    else
+      raise "Please recalculate the total of your order"
+      get_total
+    end
   end
 
   def calculate_total
