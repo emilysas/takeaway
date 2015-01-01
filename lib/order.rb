@@ -9,15 +9,19 @@ class Order
     @order = []
   end
 
-  def take_order
+  def take_order 
+    receive_order
+    get_total
+  end
+
+  def receive_order
     puts 'What would you like to order?'
     order = STDIN.gets.chomp
     while !order.empty? do
-      @order << order
-      take_order
+      @menu.find{|menu_item| menu_item[:name] == order; @order << menu_item}
+      receive_order
       break
     end
-    get_total
   end
 
   def show_order
