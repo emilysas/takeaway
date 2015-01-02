@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'twilio-ruby'
 require 'time'
+require 'menu'
 
 class Order
 
@@ -20,8 +21,6 @@ class Order
     puts 'What would you like to order?'
     order = STDIN.gets.chomp
     while !order.empty? do
-#need to find a way to get order to look at the menu class
-#maybe menu needs to be a module?
       @menu.find{|menu_item| menu_item[:name] == order; @order << menu_item}
       receive_order
       break
@@ -34,7 +33,7 @@ class Order
 
   def get_total
     puts 'Please calculate the order total'
-    total_est = STDIN.gets.chomp
+    total_est = STDIN.gets.chomp.to_f
     compare_total(total_est)
   end
 
