@@ -1,5 +1,4 @@
 require 'order'
-require 'menu'
 
 describe Order do 
 
@@ -18,14 +17,15 @@ describe Order do
     order.ask_customer
   end
 
-  it 'will ask the customer to estimate the total' do
-    allow(STDIN).to receive(:gets) { '2.45' }
-    expect(order.process_order).to eq(2.45)
-  end
-
   it 'can calculate the order total' do
     allow(order).to receive(:contents) { [{name: "onion bhaji", price: 2.45}, {name: "vegetable somosa", price: 2.45}] }
     expect(order.calculate_total).to eq(4.9)
+  end
+
+  it 'can compare the customer\'s estimate with the actual total' do
+    allow(order).to receive(:ask_for_total){4.8}
+    allow(order).to receive(:contents) { [{name: "onion bhaji", price: 2.45}, {name: "vegetable somosa", price: 2.45}] }
+    expect{order.get_total}.to change{order.correct?}.to (false)
   end
 
   # xit 'can send a text to the customer' do

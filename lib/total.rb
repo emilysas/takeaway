@@ -7,20 +7,20 @@
 
   def get_total
     total_est = ask_for_total.to_f
-    #compare_total(total_est)
+    compare_total(total_est)
   end
 
-  # def compare_total(estimate)
-  #   if calculate_total == estimate 
-  #     @correct = true
-  #   else
-  #     @correct = false
-  #   end
-  # end
+  def compare_total(estimate)
+    if calculate_total == estimate 
+      @correct = true
+    else
+      @correct = false
+    end
+  end
 
-  # def correct?
-  #   @correct
-  # end
+  def correct?
+    @correct
+  end
 
   def calculate_total
     prices = []

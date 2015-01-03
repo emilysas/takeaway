@@ -5,7 +5,7 @@ require 'text'
 class Order
 
   include Total
-  include Text
+  # include Text
 
   attr_reader :contents, :menu
 
