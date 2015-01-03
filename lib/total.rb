@@ -15,6 +15,7 @@
       @correct = true
     else
       @correct = false
+      recalculate_total
     end
   end
 
@@ -28,9 +29,8 @@
     total = prices.inject{|memo, num| memo + num}
   end
 
-  # def recalculate_total
-  #   raise "Please recalculate the total of your order"
-  #   get_total
-  # end
+  def recalculate_total
+    raise "Please recalculate the total of your order"
+  end
 
 end

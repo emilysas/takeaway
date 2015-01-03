@@ -1,11 +1,11 @@
-require 'menu'
-require 'total'
-require 'text'
+require_relative 'menu'
+require_relative 'total'
+require_relative 'text'
 
 class Order
 
   include Total
-  # include Text
+  include Text
 
   attr_reader :contents, :menu
 
@@ -21,7 +21,7 @@ class Order
 
   def process_order
     get_total
-    #correct? ? send_text : recalculate_total
+    correct? ? send_text : get_total
   end
 
   def ask_customer
