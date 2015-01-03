@@ -4,8 +4,8 @@ require 'text'
 
 class Order
 
-  # include Total
-  # include Text
+  include Total
+  include Text
 
   attr_reader :contents, :menu
 
@@ -14,11 +14,15 @@ class Order
     @menu = menu
   end
 
-  # def take_order 
-  #   ask_customer
-  #   get_total
-  #   correct? ? send_text : recalculate_total
-  # end
+  def take_order 
+    ask_customer
+    process_order
+  end
+
+  def process_order
+    get_total
+    #correct? ? send_text : recalculate_total
+  end
 
   def ask_customer
     puts 'What would you like to order?'
