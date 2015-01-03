@@ -26,8 +26,12 @@ class Order
     note_down(content)
   end
 
+  def in_stock(content)
+    menu.check_stock(content)
+  end
+
   def note_down(content)
-    @contents << content unless content.nil? || menu.stocked?(content)==false     
+    @contents << content unless content.nil? || !in_stock(content)
   end
 
 end
