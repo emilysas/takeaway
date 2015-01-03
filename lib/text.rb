@@ -12,7 +12,7 @@ module Text
   end
 
   def send_text
-    self.send("Thank you for your order, this should be delivered to you by #{self.delivery_time}")
+    send_sms("Thank you for your order, this should be delivered to you by #{delivery_time}")
   end 
 
 end
