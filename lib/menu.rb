@@ -4,10 +4,6 @@ class Menu
     @menu = menu
   end
 
-  # def display_menu
-  #   @menu.each {|menu_item| puts "#{menu_item[:name]}: £#{menu_item[:price].round(2)}"}
-  # end
-
   def check_stock(choice)
     @chosen_item = @menu.find{|menu_item| menu_item[:name] == choice }
     @chosen_item ? stocked : not_stocked
