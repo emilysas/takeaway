@@ -27,16 +27,12 @@ class Order
   def ask_customer
     puts 'What would you like to order?'
     choice = STDIN.gets.chomp
+    note_down(choice) unless choice.nil?
+  end
+
+  def note_down(choice)
     content = menu.find_item(choice)
-    note_down(content)
-  end
-
-  def in_stock(content)
-    menu.check_stock(content)
-  end
-
-  def note_down(content)
-    @contents << content unless content.nil? || !in_stock(content[:name])
+    @contents << content 
   end
 
 end

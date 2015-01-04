@@ -5,17 +5,16 @@ describe Order do
   let(:order){ Order.new(menu)}
   let(:menu){double :menu, find_item: "onion bhaji"}
   
-  context 'get order' do
+  context 'when taking order' do
 
     before {allow(STDIN).to receive(:gets) { 'onion bhaji' }}
 
       it 'can ask a customer for their order' do
-        allow(order).to receive(:in_stock){true}
         expect{order.ask_customer}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
       end
 
       it 'will check to see if stocked' do
-        expect(menu).to receive(:check_stock).with('onion bhaji')
+        expect(menu).to receive(:find_item).with('onion bhaji')
         order.ask_customer
       end
 
