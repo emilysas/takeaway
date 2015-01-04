@@ -3,7 +3,7 @@ require 'order'
 describe Order do 
 
   let(:order){ Order.new(menu)}
-  let(:menu){double :menu}
+  let(:menu){double :menu, find_item: {name: "onion bhaji", price: 2.45}}
   
   context 'get order' do
 
@@ -11,7 +11,7 @@ describe Order do
 
       it 'can ask a customer for their order' do
         allow(order).to receive(:in_stock){true}
-        expect{order.ask_customer}.to change{order.contents}.to (['onion bhaji'])
+        expect{order.ask_customer}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
       end
 
       xit 'will check to see if stocked' do
