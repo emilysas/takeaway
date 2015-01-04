@@ -26,7 +26,8 @@ class Order
 
   def ask_customer
     puts 'What would you like to order?'
-    content = STDIN.gets.chomp
+    choice = STDIN.gets.chomp
+    content = menu.find_item(choice)
     note_down(content)
   end
 

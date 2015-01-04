@@ -9,12 +9,12 @@ describe Order do
 
     before {allow(STDIN).to receive(:gets) { 'onion bhaji' }}
 
-      it 'can ask a customer for their order' do
+      xit 'can ask a customer for their order' do
         allow(order).to receive(:in_stock){true}
         expect{order.ask_customer}.to change{order.contents}.to (['onion bhaji'])
       end
 
-      it 'will check to see if stocked' do
+      xit 'will check to see if stocked' do
         expect(menu).to receive(:check_stock).with('onion bhaji')
         order.ask_customer
       end
