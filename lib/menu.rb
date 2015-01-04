@@ -5,12 +5,13 @@ class Menu
   end
 
   def check_stock(choice)
-    @chosen_item = find_item(choice)
-    @chosen_item ? stocked : not_stocked
+    chosen_item = find_item(choice)
+    chosen_item ? stocked : not_stocked
   end
 
   def find_item(choice)
-    @menu.find{|menu_item| menu_item[:name] == choice }
+    item = @menu.select{|menu_item| menu_item[:name] == choice}
+    item = item[0]
   end
 
   def stocked?

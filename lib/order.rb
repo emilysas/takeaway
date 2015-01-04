@@ -36,7 +36,7 @@ class Order
   end
 
   def note_down(content)
-    @contents << content unless content.nil? || !in_stock(content)
+    @contents << content unless content.nil? || !in_stock(content[:name])
   end
 
 end
