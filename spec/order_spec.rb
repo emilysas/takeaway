@@ -14,8 +14,8 @@ describe Order do
         expect{order.ask_customer}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
       end
 
-      xit 'will check to see if stocked' do
-        expect(menu).to receive(:check_stock).with('onion bhaji')
+      it 'will check to see if stocked' do
+        expect(menu).to receive(:check_stock).with({name: 'onion bhaji', price: 2.45})
         order.ask_customer
       end
 
