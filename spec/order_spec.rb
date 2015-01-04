@@ -3,7 +3,7 @@ require 'order'
 describe Order do 
 
   let(:order){ Order.new(menu)}
-  let(:menu){double :menu, find_item: "onion bhaji"}
+  let(:menu){double :menu, find_item: {:name => "onion bhaji", :price => 2.45} }
   
   context 'when taking order' do
 
@@ -22,7 +22,7 @@ describe Order do
 
   context 'order placed' do
 
-    before{allow(order).to receive(:contents) { [{name: "onion bhaji", price: 2.45}, {name: "vegetable somosa", price: 2.45}] }}
+    before{allow(order).to receive(:contents) { [{:name => "onion bhaji", :price => 2.45}, {name: "vegetable somosa", price: 2.45}] }}
 
       it 'can calculate the order total' do
         expect(order.calculate_total).to eq(4.9)
