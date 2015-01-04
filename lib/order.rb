@@ -14,9 +14,9 @@ class Order
     @menu = menu
   end
 
-  def take_order 
+  def take_order(choice)
+    note_down(choice) 
     ask_customer
-    process_order
   end
 
   def process_order
@@ -27,12 +27,13 @@ class Order
   def ask_customer
     puts 'What would you like to order?'
     choice = STDIN.gets.chomp
-    note_down(choice) unless choice.nil?
+    choice.empty? ? process_order : take_order(choice) 
   end
 
   def note_down(choice)
     content = menu.find_item(choice)
-    @contents << content 
+    @contents << content
+    puts @contents 
   end
 
 end

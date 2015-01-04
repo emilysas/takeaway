@@ -12,7 +12,7 @@ class Takeaway
   end
 
   def take_customer_order
-    order.take_order
+    order.ask_customer
   end
 
 end
