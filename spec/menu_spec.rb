@@ -8,7 +8,7 @@ describe Menu do
     expect(menu.check_stock("onion bhaji")).to eq(true)
   end
 
-  xit 'can inform the customer if a menu item doesn\'t exist' do
+  it 'can inform the customer if a menu item doesn\'t exist' do
     expect{menu.check_stock("beef")}.to raise_error("Sorry, we do not sell this item")
   end
 
