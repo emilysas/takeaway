@@ -6,8 +6,8 @@ module Text
   include Twilio
 
   def delivery_time
-    t = Time.now + (60*60)
-    time = "#{t.hour}:#{t.min}"
+    t = Time.now
+    time = t.strftime("%I:%M%p")
   end
 
   def send_text

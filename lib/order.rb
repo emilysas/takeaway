@@ -33,7 +33,6 @@ class Order
   def note_down(choice)
     content = menu.find_item(choice)
     @contents << content
-    puts @contents 
   end
 
 end
