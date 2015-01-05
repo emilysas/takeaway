@@ -11,12 +11,17 @@ class Takeaway
     @order = Order.new(menu)
   end
 
-  def take_customer_order
+  def take_customer_order(choice)
     order.add_dish(choice)
+  end
+
+  def request_total(total)
+    order.get_total(total)
   end
 
 end
 
 takeaway = Takeaway.new
-takeaway.take_customer_order
+takeaway.take_customer_order('onion bhaji')
+takeaway.request_total(2.45)
 

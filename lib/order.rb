@@ -14,9 +14,9 @@ class Order
     @menu = menu
   end
 
-  def process_order
-    get_total
-    correct? ? send_text : get_total
+  def process_order(estimate)
+    compare_total(estimate)
+    send_text
   end
 
   def add_dish(choice)

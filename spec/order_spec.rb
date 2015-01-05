@@ -30,25 +30,20 @@ describe Order do
 
     context 'estimate correct' do
 
-      before{allow(order).to receive(:ask_for_total){4.9}}
-
         it 'can compare the customer\'s estimate with the actual total' do
-          allow(order).to receive(:ask_for_total){4.9}
-          expect{order.get_total}.to change{order.correct?}.to (true)
+          expect(order.compare_total(4.9)).to eq(true)
         end
 
         it 'can send a text to the customer' do
-          allow(order).to receive(:ask_for_total){4.9}
           expect(order).to receive(:send_text)
-          order.process_order
+          order.process_order(4.9)
         end
     end
 
     context 'estimate wrong' do
 
       it 'can ask the customer to recalculate if estimate is wrong' do
-        allow(order).to receive(:ask_for_total){4.8}
-        expect{order.get_total}.to raise_error("Please recalculate the total of your order")
+        expect{order.process_order(4.8)}.to raise_error("Please recalculate the total of your order")
       end
 
     end

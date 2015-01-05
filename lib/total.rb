@@ -1,26 +1,9 @@
  module Total
-  
-  def ask_for_total
-    puts 'Please calculate the order total'
-    STDIN.gets.chomp
-  end
-
-  def get_total
-    total_est = ask_for_total.to_f
-    compare_total(total_est)
-  end
 
   def compare_total(estimate)
-    if calculate_total == estimate 
-      @correct = true
-    else
-      @correct = false
-      recalculate_total
-    end
-  end
-
-  def correct?
-    @correct
+    correct = calculate_total == estimate 
+    recalculate_total unless correct
+    correct
   end
 
   def calculate_total
