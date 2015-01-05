@@ -7,15 +7,15 @@ describe Order do
   
   context 'when taking order' do
 
-    before {allow(STDIN).to receive(:gets) { 'onion bhaji' }}
+      before{allow(menu).to receive(:check_stock).with('onion bhaji'){true}}
 
       it 'can ask a customer for their order' do
-        expect{order.ask_customer}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
+        expect{order.add_dish('onion bhaji')}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
       end
 
       it 'will check to see if stocked' do
         expect(menu).to receive(:find_item).with('onion bhaji')
-        order.ask_customer
+        order.add_dish('onion bhaji')
       end
 
   end

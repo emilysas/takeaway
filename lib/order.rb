@@ -14,20 +14,14 @@ class Order
     @menu = menu
   end
 
-  def take_order(choice)
-    note_down(choice) 
-    ask_customer
-  end
-
   def process_order
     get_total
     correct? ? send_text : get_total
   end
 
-  def ask_customer
-    puts 'What would you like to order?'
-    choice = STDIN.gets.chomp
-    choice.empty? ? process_order : take_order(choice) 
+  def add_dish(choice)
+    menu.check_stock(choice)
+    note_down(choice)
   end
 
   def note_down(choice)
