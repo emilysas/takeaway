@@ -7,7 +7,7 @@ describe Order do
   
   context 'when taking order' do
 
-      before{allow(menu).to receive(:check_stock).with('onion bhaji'){true}}
+    before{allow(menu).to receive(:check_stock).with('onion bhaji'){true}}
 
       it 'can ask a customer for their order' do
         expect{order.add_dish('onion bhaji')}.to change{order.contents}.to ([{name: 'onion bhaji', price: 2.45}])
