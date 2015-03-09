@@ -2,13 +2,15 @@
 ##Takeaway
 _____________________
 
-This was my personal weekend challenge for Week 2 of Makers Academy. The task was to create a takeaway system; whereby a customer could place an order, calculate the total, and if the total is correct would receive a text message informing them when their order would be delivered. My learning objectives were to consolidate my understanding ODD and the Solid Principles, and using RSpec for TDD.
+This was my personal weekend challenge for Week 2 of Makers Academy. The task was to create a takeaway system; whereby a customer could place an order, calculate the total, and if the total is correct would receive a text message informing them when their order would be delivered. 
 
 ##Tools Used
 * Ruby
 * Rspec
 * Twilio
 
+##Lessons Learned
+My learning objectives were to consolidate my understanding ODD and the Solid Principles, and using RSpec for TDD. This was also the first time that I had used a gem like Twilio, and this involved reading through the documentation and working out how to apply it to my app.
 
 ## Domain Model / CRC
 
@@ -54,7 +56,7 @@ Modules
 * Text (this module created the appropriate content of the SMS)
 * Total (this module calculated the total of an order, and compared it to the customers estimate)
 * Twilio (this is the twilio code that enables the SMS function)
-___________________________
+
 
 ##How to use takeaway
 
